@@ -1,0 +1,33 @@
+package service.impl;
+
+import dao.impl.UserImpl;
+import model.User;
+import service.UserServe;
+
+public class UserServed implements UserServe {
+    UserImpl userImpl = new UserImpl();
+    @Override
+    public String addNewUser(User user) {
+        return userImpl.addNewUser(user);
+    }
+
+    @Override
+    public User userUpdateById(Long id, String nickName, String password, String photo) {
+        return userImpl.userUpdateById(id,nickName,password,photo);
+    }
+
+    @Override
+    public User searchByName(String nickName) {
+        return null;
+    }
+
+    @Override
+    public User sortByAge(int age) {
+        return null;
+    }
+
+    @Override
+    public User filter(int age) {
+        return null;
+    }
+}

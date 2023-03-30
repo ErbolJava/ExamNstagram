@@ -22,12 +22,12 @@ public class UserServed implements UserServe {
     }
 
     @Override
-    public User sortByAge(int age) {
+    public User sortByAge() {
         return null;
     }
 
     @Override
-    public User filter(int age) {
+    public User filter() {
         return null;
     }
 }

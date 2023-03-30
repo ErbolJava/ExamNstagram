@@ -7,7 +7,9 @@ import java.util.List;
 
 public class Database {
 List<User> users = new ArrayList<>();
+public Database (){
 
+}
     public Database(List<User> users) {
         this.users = users;
     }

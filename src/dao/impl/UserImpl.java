@@ -4,15 +4,11 @@ import dao.UserDao;
 import db.Database;
 import model.User;
 
-import javax.xml.crypto.Data;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class UserImpl implements UserDao {
-    List<User>users = new ArrayList<>();
-    Database database = new Database(users);
+    Database database = new Database();
 
     @Override
     public String addNewUser(User user) {
@@ -22,41 +18,47 @@ public class UserImpl implements UserDao {
 
     @Override
     public User userUpdateById(Long id, String nickName, String password, String photo) {
-        database.getUsers().get(users.size()).setNickName(nickName);
-        database.getUsers().get(users.size()).setPhoto(photo);
-            return null;
-    }
-
-    @Override
-    public User searchByName(String nickName) {
-        boolean a = false;
-        for (User getUser:database.getUsers()) {
-            if (nickName.equalsIgnoreCase(getUser.getNickName())) {
-                System.out.println(getUser);
-            } else {
-                a = true;
-            }
-            if (a) {
-                for (User getuser : database.getUsers()) {
-                    if (nickName.equalsIgnoreCase(getuser.getNickName())) {
-                        System.out.println(getuser);
-                    }
-                    else{
-                        System.out.println("Error");
-                    }
-                }
+        for (User u : database.getUsers()) {
+            if (id.equals(u.getId()) && password.equals(u.getPassword())) {
+                u.setNickName(nickName);
+                u.setPhoto(photo);
             }
         }
         return null;
     }
 
     @Override
-    public User sortByAge(int age) {
+    public User searchByName(String nickName) {
+        for (User u : database.getUsers()) {
+            if (u.getNickName().equals(nickName)) {
+                System.out.println(u);
+            }
+        }
         return null;
     }
 
     @Override
-    public User filter(int age) {
+    public User sortByAge() {
+        System.out.println(database.getUsers().stream().sorted(Comparator.comparingInt(User::getAge)).findAny().orElse(null));
+        return database.getUsers()
+                .stream()
+                .sorted(Comparator.comparingInt(User::getAge))
+                .findAny()
+                .orElse(null);
+
+    }
+
+
+    @Override
+    public User filter() {
+        System.out.println("1 - person < 20  |  2 - person > 20");
+        int inp = new Scanner(System.in).nextInt();
+        if (inp == 1) {
+            database.getUsers().stream().filter(user -> user.getAge() < 20).forEach(System.out::println);
+        }
+        if (inp == 2){
+            database.getUsers().stream().filter(user -> user.getAge() > 20).forEach(System.out::println);
+        }
         return null;
     }
 }

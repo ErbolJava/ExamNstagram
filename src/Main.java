@@ -16,8 +16,8 @@ public class Main {
         List<User>userList = new ArrayList<>();
         while(true) {
             System.out.println("""
-                    1 - Add New User | 2 - Update By Id | 3 - Search By Name
-                    4 - Sort By Age | 5 - Filter age >20 || <20""");
+                    1 - Add New User | 2 - Update By Id  | 3 - Search By Name
+                          4 - Sort By Age  | 5 - Filter age >20 || <20""");
 
             int a = scanner.nextInt();
             switch (a) {

@@ -31,7 +31,7 @@ public class UserImpl implements UserDao {
     public User searchByName(String nickName) {
         for (User u : database.getUsers()) {
             if (u.getNickName().equals(nickName)) {
-                System.out.println(u);
+                return u;
             }
         }
         return null;
@@ -39,13 +39,13 @@ public class UserImpl implements UserDao {
 
     @Override
     public User sortByAge() {
+        // stream//сортировка по возрасту (по возрастанию и убыванию)
         System.out.println(database.getUsers().stream().sorted(Comparator.comparingInt(User::getAge)).findAny().orElse(null));
         return database.getUsers()
                 .stream()
                 .sorted(Comparator.comparingInt(User::getAge))
                 .findAny()
                 .orElse(null);
-
     }
 
 

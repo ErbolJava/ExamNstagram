@@ -10,11 +10,7 @@ public class User {
     private String photo;
     private Gender gender;
 
-
-
-    public User() {
-
-    }
+    public User() {}
 
     public User(String nickName, String password, Long id, int age, String photo, Gender gender) {
         this.nickName = nickName;
@@ -22,56 +18,44 @@ public class User {
         this.id = id;
         this.age = age;
         this.photo = photo;
-        this.gender = gender;
-    }
+        this.gender = gender;}
 
     public String getNickName() {
-        return nickName;
-    }
+        return nickName;}
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }
 
     public String getPassword() {
-        return password;
-    }
+        return password;}
 
     public void setPassword(String password) {
-        this.password = password;
-    }
+        this.password = password;}
 
     public Long getId() {
-        return id;
-    }
+        return id;}
 
     public void setId(Long id) {
-        this.id = id;
-    }
+        this.id = id;}
 
     public int getAge() {
-        return age;
-    }
+        return age;}
 
     public void setAge(int age) {
-        this.age = age;
-    }
+        this.age = age;}
 
     public String getPhoto() {
-        return photo;
-    }
+        return photo;}
 
     public void setPhoto(String photo) {
-        this.photo = photo;
-    }
+        this.photo = photo;}
 
     public Gender getGender() {
-        return gender;
-    }
+        return gender;}
 
     public void setGender(Gender gender) {
-        this.gender = gender;
-    }
+        this.gender = gender;}
 
     @Override
     public String toString() {

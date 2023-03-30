@@ -24,6 +24,7 @@ public class UserServed implements UserServe {
     @Override
     public User sortByAge() {
         return null;
+        // stream//сортировка по возрасту (по возрастанию и убыванию)
     }
 
     @Override
